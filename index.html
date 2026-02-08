@@ -1,4 +1,555 @@
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daydream Sites + Rosie | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #fafafa;
+            --bg-sidebar: #f5f5f5;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --border: #e5e5e5;
+            --accent: #F495B3;
+            --white: #ffffff;
+            --shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 260px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            padding: 24px 16px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            display: none;
+        }
+        
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        
+        .nav-title {
+            font-size: 0.7em;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            margin: 2px 0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            transition: all 0.15s ease;
+        }
+        
+        .nav-item:hover {
+            background: var(--white);
+            color: var(--text-primary);
+        }
+        
+        .nav-item.active {
+            background: var(--white);
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px 40px;
+            max-width: 1200px;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-label {
+            font-size: 0.75em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 1.75em;
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daydream Sites + Rosie | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #fafafa;
+            --bg-sidebar: #f5f5f5;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --border: #e5e5e5;
+            --accent: #F495B3;
+            --white: #ffffff;
+            --shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 260px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            padding: 24px 16px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            display: none;
+        }
+        
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        
+        .nav-title {
+            font-size: 0.7em;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            margin: 2px 0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            transition: all 0.15s ease;
+        }
+        
+        .nav-item:hover {
+            background: var(--white);
+            color: var(--text-primary);
+        }
+        
+        .nav-item.active {
+            background: var(--white);
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px 40px;
+            max-width: 1200px;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-label {
+            font-size: 0.75em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 1.75em;
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+      .stat-change {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+        
+        .content-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+        
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .card-title {
+            font-size: 0.95em;
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+        
+        .card-action {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+        
+        .card-content {
+            padding: 16px 20px;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .list-item:last-child {
+            border-bottom: none;
+        }
+        
+        .list-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            margin-top: 8px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .list-content {
+            flex: 1;
+        }
+        
+        .list-title {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        
+        .list-meta {
+            font-size: 0.8em;
+            color: var(--text-muted);
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            text-decoration: none;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            transition: color 0.15s;
+        }
+        
+        .link-item:last-child {
+            border-bottom: none;
+        }
+        
+        .link-item:hover {
+            color: var(--accent);
+        }
+        
+        .link-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 0.9em;
+        }
+        
+        .competitor-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .competitor-item:last-child {
+            border-bottom: none;
+        }
+        
+        .competitor-name {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--text-primary);
+        }
+        
+        .competitor-followers {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+        
+        .tip-box {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--border);
+            padding: 16px;
+            margin-top: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-box-title {
+            font-size: 0.8em;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+      .tip-box-text {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: var(--text-primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: 300;
+            margin-top: 16px;
+            transition: opacity 0.15s;
+        }
+        
+        .btn:hover {
+            opacity: 0.85;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .content-grid, .content-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="nav-section">
+                <div class="nav-title">Overview</div>
+                <a href="#" class="nav-item active">
+                    <span class="nav-icon">◆</span>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">◎</span>
+                    Goals
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">⚡</span>
+                    Quick Actions
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Resources</div>
+                <a href="https://daydreamsites.com" target="_blank" class="nav-item">
+                    <span class="nav-icon">→</span>
+                    Website
+                </a>
+                <a href="https://daydreamsites.com/template-shop" target="_blank" class="nav-item">
+                    <span class="nav-icon">→</span>
+                    Template Shop
+                </a>
+                <a href="https://app.honeybook.com" target="_blank" class="nav-item">
+                    <span class="nav-icon">→</span>
+                    HoneyBook
+                </a>
+                <a href="https://www.instagram.com/daydreamsites" target="_blank" class="nav-item">
+                    <span class="nav-icon">→</span>
+                    Instagram
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Tools</div>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">◇</span>
+                    SEO Tips Bank
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">◇</span>
+                    Meta Generator
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">◇</span>
+                    Content Brief
+                </a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-label">2026 Revenue Goal</div>
+                    <div class="stat-value">$100K</div>
+                    <div class="stat-change">On track</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Monthly Target</div>
+                    <div class="stat-value">$8-10K</div>
+                    <div class="stat-change">2-3 projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Instagram Followers</div>
+                    <div class="stat-value">—</div>
+                    <div class="stat-change">Growing</div>
+                </div>
                 <div class="stat-card">
                     <div class="stat-label">Status</div>
                     <div class="stat-value">Active</div>
@@ -69,3 +620,340 @@
                                 <span class="competitor-name">Davey & Krista</span>
                                 <span class="competitor-followers">—</span>
                             </div>
+                            <div class="competitor-item">
+                              <span class="competitor-name">Saffron Avenue</span>
+                                <span class="competitor-followers">—</span>
+                            </div>
+                            
+                            <div class="tip-box">
+                                <div class="tip-box-title">Your Edge</div>
+                                <div class="tip-box-text">Real SEO proof — rankings, results, and client wins they can't match.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Quick Links</span>
+                    </div>
+                    <div class="card-content">
+                        <a href="https://daydreamsites.com" target="_blank" class="link-item">
+                            <span class="link-icon">🌐</span>
+                            Daydream Sites Website
+                        </a>
+                        <a href="https://daydreamsites.com/template-shop" target="_blank" class="link-item">
+                            <span class="link-icon">🛍️</span>
+                            Template Shop
+                        </a>
+                        <a href="https://app.honeybook.com" target="_blank" class="link-item">
+                            <span class="link-icon">📋</span>
+                            HoneyBook CRM
+                        </a>
+                        <a href="https://www.instagram.com/daydreamsites" target="_blank" class="link-item">
+                            <span class="link-icon">📸</span>
+                            Instagram
+                        </a>
+                        <a href="https://api.search.brave.com" target="_blank" class="link-item">
+                            <span class="link-icon">🔍</span>
+                            Brave API Dashboard
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Rosie Quick Actions</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="list-item">
+                            <div class="list-bullet"></div>
+                            <div class="list-content">
+                                <div class="list-title">Research a competitor</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-bullet"></div>
+                            <div class="list-content">
+                                <div class="list-title">Draft Instagram caption</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-bullet"></div>
+                            <div class="list-content">
+                                <div class="list-title">Find SEO stats for content</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-bullet"></div>
+                            <div class="list-content">
+                                <div class="list-title">Identify dream clients</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-bullet"></div>
+                            <div class="list-content">
+                                <div class="list-title">Plan content calendar</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-box"><div class="tip-box-title">Reminder</div>
+                            <div class="tip-box-text">Creative mornings 7:30am-2pm. Check messages when YOU want.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daydream Sites + Rosie | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #ffffff; --bg-secondary: #fafafa; --bg-sidebar: #f5f5f5;
+            --text-primary: #000000; --text-secondary: #333333; --text-muted: #666666;
+            --border: #e5e5e5; --accent: #F495B3; --white: #ffffff;
+            --shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; min-height: 100vh; }
+        .app-container { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: var(--bg-sidebar); border-right: 1px solid var(--border); padding: 24px 16px; position: fixed; height: 100vh; overflow-y: auto; }
+        .sidebar-header { display: none; }
+        .nav-section { margin-bottom: 24px; }
+        .nav-title { font-size: 0.7em; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); padding: 0 12px; margin-bottom: 8px; }
+        .nav-item { display: flex; align-items: center; padding: 8px 12px; margin: 2px 0; border-radius: 6px; text-decoration: none; color: var(--text-secondary); font-size: 0.9em; transition: all 0.15s ease; }
+        .nav-item:hover { background: var(--white); color: var(--text-primary); }
+        .nav-item.active { background: var(--white); color: var(--text-primary); box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .nav-icon { width: 20px; height: 20px; margin-right: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1em; }
+        .main-content { flex: 1; margin-left: 260px; padding: 32px 40px; max-width: 1200px; }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+        .stat-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; box-shadow: var(--shadow); }
+        .stat-label { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .stat-value { font-size: 1.75em; font-weight: 300; color: var(--text-primary); letter-spacing: -0.5px; }
+        .stat-change { font-size: 0.8em; color: var(--text-muted); margin-top: 4px; }
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+        .content-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+        .card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
+        .card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+        .card-title { font-size: 0.95em; font-weight: 400; color: var(--text-primary); }
+        .card-action { font-size: 0.8em; color: var(--text-muted); cursor: pointer; }
+        .card-content { padding: 16px 20px; }
+        .list-item { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .list-item:last-child { border-bottom: none; }
+        .list-bullet { width: 6px; height: 6px; background: var(--text-muted); border-radius: 50%; margin-top: 8px; margin-right: 12px; flex-shrink: 0; }
+        .list-content { flex: 1; }
+        .list-title { font-size: 0.9em; font-weight: 300; color: var(--text-primary); margin-bottom: 2px; }
+      .list-meta { font-size: 0.8em; color: var(--text-muted); }
+        .link-item { display: flex; align-items: center; padding: 10px 0; text-decoration: none; color: var(--text-secondary); border-bottom: 1px solid var(--border); transition: color 0.15s; }
+        .link-item:last-child { border-bottom: none; }
+        .link-item:hover { color: var(--accent); }
+        .link-icon { width: 28px; height: 28px; background: var(--bg-secondary); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 0.9em; }
+        .competitor-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .competitor-item:last-child { border-bottom: none; }
+        .competitor-name { font-size: 0.9em; font-weight: 300; color: var(--text-primary); }
+        .competitor-followers { font-size: 0.8em; color: var(--text-muted); background: var(--bg-secondary); padding: 4px 10px; border-radius: 12px; }
+        .tip-box { background: var(--bg-secondary); border-left: 3px solid var(--border); padding: 16px; margin-top: 16px; border-radius: 0 8px 8px 0; }
+        .tip-box-title { font-size: 0.8em; font-weight: 400; color: var(--text-primary); margin-bottom: 4px; }
+        .tip-box-text { font-size: 0.85em; color: var(--text-secondary); }
+        .btn { display: inline-flex; align-items: center; padding: 10px 20px; background: var(--text-primary); color: var(--white); text-decoration: none; border-radius: 6px; font-size: 0.85em; font-weight: 300; margin-top: 16px; transition: opacity 0.15s; }
+        .btn:hover { opacity: 0.85; }
+        @media (max-width: 1024px) { .sidebar { transform: translateX(-100%); } .main-content { margin-left: 0; } .stats-row { grid-template-columns: repeat(2, 1fr); } .content-grid, .content-grid-2 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="nav-section">
+                <div class="nav-title">Overview</div>
+                <a href="#" class="nav-item active"><span class="nav-icon">◆</span>Dashboard</a>
+                <a href="#" class="nav-item"><span class="nav-icon">◎</span>Goals</a>
+                <a href="#" class="nav-item"><span class="nav-icon">⚡</span>Quick Actions</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-title">Resources</div>
+                <a href="https://daydreamsites.com" target="_blank" class="nav-item"><span class="nav-icon">→</span>Website</a>
+                <a href="https://daydreamsites.com/template-shop" target="_blank" class="nav-item"><span class="nav-icon">→</span>Template Shop</a>
+                <a href="https://app.honeybook.com" target="_blank" class="nav-item"><span class="nav-icon">→</span>HoneyBook</a>
+                <a href="https://www.instagram.com/daydreamsites" target="_blank" class="nav-item"><span class="nav-icon">→</span>Instagram</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-title">Tools</div>
+                <a href="#" class="nav-item"><span class="nav-icon">◇</span>SEO Tips Bank</a>
+                <a href="#" class="nav-item"><span class="nav-icon">◇</span>Meta Generator</a>
+                <a href="#" class="nav-item"><span class="nav-icon">◇</span>Content Brief</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="stats-row">
+                <div class="stat-card"><div class="stat-label">2026 Revenue Goal</div><div class="stat-value">$100K</div><div class="stat-change">On track</div></div>
+                <div class="stat-card"><div class="stat-label">Monthly Target</div><div class="stat-value">$8-10K</div><div class="stat-change">2-3 projects</div></div>
+                <div class="stat-card"><div class="stat-label">Instagram Followers</div><div class="stat-value">—</div><div class="stat-change">Growing</div></div>
+                <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value">Active</div><div class="stat-change">Ready for clients</div></div>
+            </div>
+            <div class="content-grid">
+                <div class="left-col">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Instagram Content Strategy</span><span class="card-action">View all</span></div>
+                        <div class="card-content">
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">SEO wins & ranking screenshots</div><div class="list-meta">Proof-led content that converts</div></div></div>
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Before/after website transformations</div><div class="list-meta">Visual proof of your work</div></div></div>
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Data-backed tips for event pros</div><div class="list-meta">Stats that help them improve</div></div></div>
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Stories that convert</div><div class="list-meta">No face-to-camera required</div></div></div>
+                            <a href="#" class="btn">Create this week's content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-col">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Top Competitors</span></div>
+                        <div class="card-content">
+                            <div class="competitor-item"><span class="competitor-name">With Grace and Gold</span><span class="competitor-followers">23K</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Alex Collier Design</span><span class="competitor-followers">2.7K</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Studio Crescent</span><span class="competitor-followers">2.5K</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Davey & Krista</span><span class="competitor-followers">—</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Saffron Avenue</span><span class="competitor-followers">—</span></div>
+                            <div class="tip-box"><div class="tip-box-title">Your Edge</div><div class="tip-box-text">Real SEO proof — rankings, results, and client wins they can't match.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-grid-2">
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Quick Links</span></div>
+                    <div class="card-content">
+                        <a href="https://daydreamsites.com" target="_blank" class="link-item"><span class="link-icon">🌐</span>Daydream Sites Website</a>
+                        <a href="https://daydreamsites.com/template-shop" target="_blank" class="link-item"><span class="link-icon">🛍️</span>Template Shop</a>
+                        <a href="https://app.honeybook.com" target="_blank" class="link-item"><span class="link-icon">📋</span>HoneyBook CRM</a>
+                        <a href="https://www.instagram.com/daydreamsites" target="_blank" class="link-item"><span class="link-icon">📸</span>Instagram</a>
+                        <a href="https://api.search.brave.com" target="_blank" class="link-item"><span class="link-icon">🔍</span>Brave API Dashboard</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Rosie Quick Actions</span></div>
+                    <div class="card-content">
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Research a competitor</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Draft Instagram caption</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Find SEO stats for content</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Identify dream clients</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Plan content calendar</div></div></div>
+                        <div class="tip-box"><div class="tip-box-title">Reminder</div><div class="tip-box-text">Creative mornings 7:30am-2pm. Check messages when YOU want.</div></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+.list-meta { font-size: 0.8em; color: var(--text-muted); }
+        .link-item { display: flex; align-items: center; padding: 10px 0; text-decoration: none; color: var(--text-secondary); border-bottom: 1px solid var(--border); transition: color 0.15s; }
+        .link-item:last-child { border-bottom: none; }
+        .link-item:hover { color: var(--accent); }
+        .link-icon { width: 28px; height: 28px; background: var(--bg-secondary); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 0.9em; }
+        .competitor-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .competitor-item:last-child { border-bottom: none; }
+        .competitor-name { font-size: 0.9em; font-weight: 300; color: var(--text-primary); }
+        .competitor-followers { font-size: 0.8em; color: var(--text-muted); background: var(--bg-secondary); padding: 4px 10px; border-radius: 12px; }
+        .tip-box { background: var(--bg-secondary); border-left: 3px solid var(--border); padding: 16px; margin-top: 16px; border-radius: 0 8px 8px 0; }
+        .tip-box-title { font-size: 0.8em; font-weight: 400; color: var(--text-primary); margin-bottom: 4px; }
+        .tip-box-text { font-size: 0.85em; color: var(--text-secondary); }
+        .btn { display: inline-flex; align-items: center; padding: 10px 20px; background: var(--text-primary); color: var(--white); text-decoration: none; border-radius: 6px; font-size: 0.85em; font-weight: 300; margin-top: 16px; transition: opacity 0.15s; }
+        .btn:hover { opacity: 0.85; }
+        @media (max-width: 1024px) { .sidebar { transform: translateX(-100%); } .main-content { margin-left: 0; } .stats-row { grid-template-columns: repeat(2, 1fr); } .content-grid, .content-grid-2 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="nav-section">
+                <div class="nav-title">Overview</div>
+                <a href="#" class="nav-item active"><span class="nav-icon">◆</span>Dashboard</a>
+                <a href="#" class="nav-item"><span class="nav-icon">◎</span>Goals</a>
+                <a href="#" class="nav-item"><span class="nav-icon">⚡</span>Quick Actions</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-title">Resources</div>
+                <a href="https://daydreamsites.com" target="_blank" class="nav-item"><span class="nav-icon">→</span>Website</a>
+                <a href="https://daydreamsites.com/template-shop" target="_blank" class="nav-item"><span class="nav-icon">→</span>Template Shop</a>
+                <a href="https://app.honeybook.com" target="_blank" class="nav-item"><span class="nav-icon">→</span>HoneyBook</a>
+                <a href="https://www.instagram.com/daydreamsites" target="_blank" class="nav-item"><span class="nav-icon">→</span>Instagram</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-title">Tools</div>
+                <a href="#" class="nav-item"><span class="nav-icon">◇</span>SEO Tips Bank</a>
+                <a href="#" class="nav-item"><span class="nav-icon">◇</span>Meta Generator</a>
+                <a href="#" class="nav-item"><span class="nav-icon">◇</span>Content Brief</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="stats-row">
+                <div class="stat-card"><div class="stat-label">2026 Revenue Goal</div><div class="stat-value">$100K</div><div class="stat-change">On track</div></div>
+                <div class="stat-card"><div class="stat-label">Monthly Target</div><div class="stat-value">$8-10K</div><div class="stat-change">2-3 projects</div></div>
+                <div class="stat-card"><div class="stat-label">Instagram Followers</div><div class="stat-value">—</div><div class="stat-change">Growing</div></div>
+                <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value">Active</div><div class="stat-change">Ready for clients</div></div>
+            </div>
+            <div class="content-grid">
+                <div class="left-col">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Instagram Content Strategy</span><span class="card-action">View all</span></div>
+                        <div class="card-content">
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">SEO wins & ranking screenshots</div><div class="list-meta">Proof-led content that converts</div></div></div>
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Before/after website transformations</div><div class="list-meta">Visual proof of your work</div></div></div>
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Data-backed tips for event pros</div><div class="list-meta">Stats that help them improve</div></div></div>
+                            <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Stories that convert</div><div class="list-meta">No face-to-camera required</div></div></div>
+                            <a href="#" class="btn">Create this week's content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-col">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Top Competitors</span></div>
+                        <div class="card-content">
+                            <div class="competitor-item"><span class="competitor-name">With Grace and Gold</span><span class="competitor-followers">23K</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Alex Collier Design</span><span class="competitor-followers">2.7K</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Studio Crescent</span><span class="competitor-followers">2.5K</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Davey & Krista</span><span class="competitor-followers">—</span></div>
+                            <div class="competitor-item"><span class="competitor-name">Saffron Avenue</span><span class="competitor-followers">—</span></div>
+                            <div class="tip-box"><div class="tip-box-title">Your Edge</div><div class="tip-box-text">Real SEO proof — rankings, results, and client wins they can't match.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-grid-2">
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Quick Links</span></div>
+                    <div class="card-content">
+                        <a href="https://daydreamsites.com" target="_blank" class="link-item"><span class="link-icon">🌐</span>Daydream Sites Website</a>
+                        <a href="https://daydreamsites.com/template-shop" target="_blank" class="link-item"><span class="link-icon">🛍️</span>Template Shop</a>
+                        <a href="https://app.honeybook.com" target="_blank" class="link-item"><span class="link-icon">📋</span>HoneyBook CRM</a>
+                        <a href="https://www.instagram.com/daydreamsites" target="_blank" class="link-item"><span class="link-icon">📸</span>Instagram</a>
+                        <a href="https://api.search.brave.com" target="_blank" class="link-item"><span class="link-icon">🔍</span>Brave API Dashboard</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Rosie Quick Actions</span></div>
+                    <div class="card-content">
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Research a competitor</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Draft Instagram caption</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Find SEO stats for content</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Identify dream clients</div></div></div>
+                        <div class="list-item"><div class="list-bullet"></div><div class="list-content"><div class="list-title">Plan content calendar</div></div></div>
+                        <div class="tip-box"><div class="tip-box-title">Reminder</div><div class="tip-box-text">Creative mornings 7:30am-2pm. Check messages when YOU want.</div></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

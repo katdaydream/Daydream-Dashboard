@@ -1,308 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daydream Sites + Rosie | Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --dusty-rose: #c9a8a8;
-            --dusty-rose-dark: #b08989;
-            --off-white: #faf8f6;
-            --cream: #f5f0eb;
-            --warm-gray: #8b7e7a;
-            --charcoal: #4a4a4a;
-            --soft-pink: #e8d5d5;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--off-white) 0%, var(--soft-pink) 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: var(--charcoal);
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            color: var(--charcoal);
-            margin-bottom: 30px;
-            padding: 20px;
-        }
-        
-        header h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            font-size: 3em;
-            margin-bottom: 10px;
-            color: var(--dusty-rose-dark);
-            letter-spacing: 1px;
-        }
-        
-        header p {
-            font-size: 1.2em;
-            color: var(--warm-gray);
-            font-weight: 300;
-        }
-        
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-        }
-        
-        .card {
-            background: var(--off-white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 10px 40px rgba(139, 126, 122, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--soft-pink);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(139, 126, 122, 0.15);
-        }
-        
-        .card h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            color: var(--dusty-rose-dark);
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .card h2 .emoji {
-            font-size: 1.5em;
-        }
-        
-        .card ul {
-            list-style: none;
-        }
-        
-        .card li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--soft-pink);
-        }
-        
-        .card li:last-child {
-            border-bottom: none;
-        }
-        
-        .card a {
-            color: var(--dusty-rose-dark);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: background 0.2s;
-        }
-        
-        .card a:hover {
-            background: var(--soft-pink);
-        }
-        
-        .status-box {
-            background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--dusty-rose-dark) 100%);
-            color: var(--off-white);
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .status-box h3 {
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-        }
-        
-        .quick-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .stat {
-            background: var(--cream);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2em;
-            font-weight: 300;
-            color: var(--dusty-rose-dark);
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        .stat-label {
-            color: var(--warm-gray);
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-        
-        .action-btn {
-            background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--dusty-rose-dark) 100%);
-            color: var(--off-white);
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            font-weight: 500;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .action-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(176, 137, 137, 0.4);
-        }
-        
-        .tip-box {
-            background: var(--soft-pink);
-            border-left: 4px solid var(--dusty-rose);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            color: var(--charcoal);
-        }
-        
-        footer {
-            text-align: center;
-            color: var(--warm-gray);
-            margin-top: 40px;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🎈 Daydream Sites + Rosie 🤖</h1>
-            <p>Your Strategic Marketing Command Center</p>
-        </header>
-        
-        <div class="dashboard-grid">
-            <!-- Quick Links Card -->
-            <div class="card">
-                <h2><span class="emoji">🔗</span> Quick Links</h2>
-                <ul>
-                    <li><a href="https://daydreamsites.com" target="_blank">🌐 Daydream Sites Website</a></li>
-                    <li><a href="https://daydreamsites.com/template-shop" target="_blank">🛍️ Template Shop</a></li>
-                    <li><a href="https://app.honeybook.com" target="_blank">📋 HoneyBook CRM</a></li>
-                    <li><a href="https://www.instagram.com/daydreamsites" target="_blank">📸 Instagram</a></li>
-                    <li><a href="https://api.search.brave.com" target="_blank">🔍 Brave API Dashboard</a></li>
-                </ul>
-            </div>
-            
-            <!-- Content Resources Card -->
-            <div class="card">
-                <h2><span class="emoji">📝</span> Content Resources</h2>
-                <ul>
-                    <li><a href="file:///SEO_TIPS_CONTENT.md">📊 SEO Tips Content Bank</a></li>
-                    <li><a href="file:///META_GENERATOR.md">🏷️ Meta Title/Description Generator</a></li>
-                    <li><a href="file:///MARKETING_BRIEF.md">📋 Marketing Partner Brief</a></li>
-                    <li><a href="file:///USER.md">👤 Your Profile & Info</a></li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Use the SEO Tips Bank to batch-create Instagram content for the week!
+</div>
+                <div class="stat-card">
+                    <div class="stat-label">Status</div>
+                    <div class="stat-value">Active</div>
+                    <div class="stat-change">Ready for clients</div>
                 </div>
             </div>
             
-            <!-- Business Goals Card -->
-            <div class="card">
-                <h2><span class="emoji">🎯</span> 2026 Goals</h2>
-                <div class="quick-stats">
-                    <div class="stat">
-                        <div class="stat-number">$100K</div>
-                        <div class="stat-label">Revenue Goal</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">$8-10K</div>
-                        <div class="stat-label">Monthly Target</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">2-3</div>
-                        <div class="stat-label">Projects/Month</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">🚀</div>
-                        <div class="stat-label">Status: On Track</div>
+            <div class="content-grid">
+                <div class="left-col">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Instagram Content Strategy</span>
+                            <span class="card-action">View all</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="list-item">
+                                <div class="list-bullet"></div>
+                                <div class="list-content">
+                                    <div class="list-title">SEO wins & ranking screenshots</div>
+                                    <div class="list-meta">Proof-led content that converts</div>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-bullet"></div>
+                                <div class="list-content">
+                                    <div class="list-title">Before/after website transformations</div>
+                                    <div class="list-meta">Visual proof of your work</div>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-bullet"></div>
+                                <div class="list-content">
+                                    <div class="list-title">Data-backed tips for event pros</div>
+                                    <div class="list-meta">Stats that help them improve</div>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-bullet"></div>
+                                <div class="list-content">
+                                    <div class="list-title">Stories that convert</div>
+                                    <div class="list-meta">No face-to-camera required</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn">Create this week's content</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Competitors Card -->
-            <div class="card">
-                <h2><span class="emoji">👀</span> Top Competitors</h2>
-                <ul>
-                    <li><strong>With Grace and Gold</strong> — 23K followers (The Big One)</li>
-                    <li><strong>Alex Collier Design</strong> — 2,729 followers</li>
-                    <li><strong>Studio Crescent</strong> — 2,564 followers</li>
-                    <li><strong>Davey & Krista</strong> — Wedding planner focus</li>
-                    <li><strong>Saffron Avenue</strong> — Creative entrepreneurs</li>
-                </ul>
-                <div class="status-box">
-                    <h3>🏆 Your Edge</h3>
-                    <p>You have something they don't: <strong>SEO proof</strong>. Real rankings, real results.</p>
-                </div>
-            </div>
-            
-            <!-- Instagram Strategy Card -->
-            <div class="card">
-                <h2><span class="emoji">📱</span> Instagram Focus</h2>
-                <ul>
-                    <li>✅ SEO wins & ranking screenshots</li>
-                    <li>✅ Before/after website transformations</li>
-                    <li>✅ Data-backed tips for event pros</li>
-                    <li>✅ Stories that convert</li>
-                    <li>❌ No face-to-camera required</li>
-                </ul>
-                <a href="#" class="action-btn">Create This Week's Content</a>
-            </div>
-            
-            <!-- Rosie Quick Actions Card -->
-            <div class="card">
-                <h2><span class="emoji">🤖</span> Rosie Quick Actions</h2>
-                <ul>
-                    <li><a href="#">🔍 Research a competitor</a></li>
-                    <li><a href="#">✍️ Draft Instagram caption</a></li>
-                    <li><a href="#">📊 Find SEO stats for content</a></li>
-                    <li><a href="#">🎯 Identify dream clients to reach out to</a></li>
-                    <li><a href="#">📅 Plan content calendar</a></li>
-                </ul>
-                <div class="tip-box">
-                    <strong>Reminders:</strong> Creative mornings 7:30am-2pm. Check messages when YOU want, not when they come in.
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Made with 💜 by Rosie | Last updated: February 8, 2026</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Open this file anytime to see your command center. Bookmark it!</p>
-        </footer>
-    </div>
-</body>
-</html>
+                
+                <div class="right-col">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Top Competitors</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="competitor-item">
+                                <span class="competitor-name">With Grace and Gold</span>
+                                <span class="competitor-followers">23K</span>
+                            </div>
+                            <div class="competitor-item">
+                                <span class="competitor-name">Alex Collier Design</span>
+                                <span class="competitor-followers">2.7K</span>
+                            </div>
+                            <div class="competitor-item">
+                                <span class="competitor-name">Studio Crescent</span>
+                                <span class="competitor-followers">2.5K</span>
+                            </div>
+                            <div class="competitor-item">
+                                <span class="competitor-name">Davey & Krista</span>
+                                <span class="competitor-followers">—</span>
+                            </div>
